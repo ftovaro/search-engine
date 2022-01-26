@@ -28,13 +28,20 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Inteligent search with Postgresql
 gem 'pg_search', '~> 2.3.5'
 
+# Allows connection witn MongoDB
 gem 'mongoid', '~> 7.3.3'
 
+# To use background tasks
 gem 'sidekiq', '~> 6.0.2'
 
+# Have all the stopwords
 gem 'stopwords-filter'
+
+# Routes for JavaScript
+# gem "js-routes"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
