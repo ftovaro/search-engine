@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Engine</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, width=device-width, viewport-fit=cover">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_pack_tag 'home_pack', media: 'all' %>
+  <%= javascript_pack_tag 'home_pack', 'data-turbolinks-track': 'reload' %>
+
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+
+  <body>
+    <div id="home-vue">
+      <%= yield %>
+    </div>
+  </body>
+</html>
