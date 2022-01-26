@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
   layout "home"
   def index
-    session[:test_cookie] ||= SecureRandom.uuid
-    p session[:test_cookie]
+    session[:user_uuid] ||= SecureRandom.uuid
+  end
+
+  def show
   end
 end

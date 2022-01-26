@@ -32,7 +32,9 @@ gem 'pg_search', '~> 2.3.5'
 
 gem 'mongoid', '~> 7.3.3'
 
-# gem 'bson', '~> 4.8.2'
+gem 'sidekiq', '~> 6.0.2'
+
+gem 'stopwords-filter'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

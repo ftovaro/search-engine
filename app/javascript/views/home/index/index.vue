@@ -12,9 +12,6 @@
 
 <script>
 import axios from 'axios'
-
-let timeOut
-
 export default {
   name: "Index",
   components: {
@@ -43,12 +40,12 @@ export default {
     },
     searchRequest(params){
       // TODO remove hardcoded URL
-      axios.get(`http://localhost:3000/api/v1/articles?query=${params}`)
+      axios.get(`/api/v1/articles?query=${params}`)
             .then(response => {
               // TODO change timeout depending of how many articles has the response
               this.articles = response.data?.articles ? response.data?.articles : []
             })
-            .catch((error) => { console.log(error) });
+            .catch(error => { console.log(error) });
     }
   }
 }

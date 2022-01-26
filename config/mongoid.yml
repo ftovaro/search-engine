@@ -3,13 +3,4 @@ development:
   clients:
     default:
       uri: "mongodb+srv://user:user@cluster0.ngoey.mongodb.net/user_searches?retryWrites=true&w=majority"
-test:
-  clients:
-    default:
-      database: helpjuice_test_test
-      hosts:
-        - localhost:27017
-      options:
-        read:
-          mode: :primary
-        max_pool_size: 1
+

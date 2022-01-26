@@ -3,5 +3,4 @@ class Search
 
   field :query, type: String
   field :user_uuid, type: String
-
 end
