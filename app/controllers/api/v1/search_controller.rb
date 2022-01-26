@@ -3,6 +3,8 @@ module Api
     class SearchController < Api::BaseController
       def index
         p "searching"
+        key_words = params[:query]&.split("-")
+        p key_words
         render json: { status: 200, message: "ok" }
       end
     end

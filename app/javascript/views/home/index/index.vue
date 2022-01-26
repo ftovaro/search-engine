@@ -6,12 +6,13 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: "Index",
   components: {
   },
   created(){
-    this.init()
   },
   data: () => ({
     searchSentence: "",
@@ -25,14 +26,21 @@ export default {
   watch: {
     searchSentence(newValue) {
       const filteredWords = newValue.split(' ').filter(e => !this.connectors.includes(e))
-      if (newValue.length > 2) {
-        console.log(filteredWords)
+      if (filteredWords.length > 2) {
+        console.log(filteredWords.join('-'))
+        this.searchRequest(filteredWords.join('-'))
       }
     }
   },
   methods: {
-    init(){
+    searchRequest(params){
       console.log("created")
+      // TODO remove hardcoded URL
+      axios.get(`http://localhost:3000/api/v1/articles/search?query=${params}`)
+            .then(response => {
+              console.log(response)
+            })
+            .catch(() => { console.log(error) });
     }
   }
 }
