@@ -9,8 +9,13 @@ module Api
         p "*****************"
         p session[:test_cookie]
         p key_words
+        p Search.all
         p "*****************"
         render json: { status: 200, message: "ok", articles: articles_found}
+      end
+
+      def create
+        p "Creating query"
       end
     end
   end

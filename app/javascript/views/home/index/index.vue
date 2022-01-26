@@ -1,6 +1,6 @@
 <template>
   <section>
-    <input type="text" v-model="searchSentence">
+    <input v-debounce:5000ms="saveSearch" style="width: 50%" type="text" v-model="searchSentence">
     <button>Search</button>
     <div>
       <ul>
@@ -12,6 +12,8 @@
 
 <script>
 import axios from 'axios'
+
+let timeOut
 
 export default {
   name: "Index",
@@ -25,21 +27,28 @@ export default {
   }),
   watch: {
     searchSentence(newValue) {
-      const filteredWords = newValue.split(' ')
-      if (filteredWords.length > 2) {
-        this.searchRequest(filteredWords.join('-'))
-      }
+      this.searchRequest(newValue.replace(' ','-'))
     }
   },
   methods: {
+    saveSearch(){
+      console.log("Sending data")
+      axios.post("/api/v1/search", {
+        query: this.searchSentence
+      })
+      .then(() => {
+        console.log("sent data")
+      }).catch((error) => {
+        console.log(error)})
+    },
     searchRequest(params){
       // TODO remove hardcoded URL
-      axios.get(`http://localhost:3000/api/v1/articles/search?query=${params}`)
+      axios.get(`http://localhost:3000/api/v1/articles?query=${params}`)
             .then(response => {
-              console.log(response)
+              // TODO change timeout depending of how many articles has the response
               this.articles = response.data?.articles ? response.data?.articles : []
             })
-            .catch(() => { console.log(error) });
+            .catch((error) => { console.log(error) });
     }
   }
 }

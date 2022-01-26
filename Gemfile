@@ -30,6 +30,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'pg_search', '~> 2.3.5'
 
+gem 'mongoid', '~> 7.3.3'
+
+# gem 'bson', '~> 4.8.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

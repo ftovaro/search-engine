@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      post "/search", to: "search#create", as: :create_search
       resources :articles do
         collection do
-          get "/search", to: "search#index", as: :search
+          get "/", to: "articles#index", as: :search
+          # get "/filter", to: "filter#index", as: :filter
         end
       end
     end
