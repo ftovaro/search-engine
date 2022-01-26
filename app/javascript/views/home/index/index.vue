@@ -1,6 +1,7 @@
 <template>
   <section>
-    <input type="text">
+    <input type="text" v-model="searchSentence">
+    <button>Search</button>
   </section>
 </template>
 
@@ -10,8 +11,29 @@ export default {
   components: {
   },
   created(){
-    console.log("created")
+    this.init()
   },
-  data: () => ({}),
+  data: () => ({
+    searchSentence: "",
+    // TODO search for a better name
+    connectors: [
+        "is",
+        "a",
+        ""
+    ]
+  }),
+  watch: {
+    searchSentence(newValue) {
+      const filteredWords = newValue.split(' ').filter(e => !this.connectors.includes(e))
+      if (newValue.length > 2) {
+        console.log(filteredWords)
+      }
+    }
+  },
+  methods: {
+    init(){
+      console.log("created")
+    }
+  }
 }
 </script>
