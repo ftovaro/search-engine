@@ -41,7 +41,7 @@ gem 'sidekiq', '~> 6.0.2'
 gem 'stopwords-filter'
 
 # Routes for JavaScript
-# gem "js-routes"
+gem "js-routes"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
