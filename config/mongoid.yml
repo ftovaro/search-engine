@@ -1,6 +1,9 @@
 development:
-  # Configure available database clients. (required)
   clients:
     default:
       uri: "mongodb+srv://user:user@cluster0.ngoey.mongodb.net/user_searches?retryWrites=true&w=majority"
 
+production:
+  clients:
+    default:
+      uri: "mongodb+srv://user:user@cluster0.ngoey.mongodb.net/user_searches?retryWrites=true&w=majority"
