@@ -77,3 +77,4 @@ This is used to look at all the searches all users have made
 ## How to make it ​high-volume​ ##
 
 I'd use [Algolia](https://www.algolia.com/) with [InstantSearch](https://www.algolia.com/products/instantsearch/) to manage the search in the webpage
+and they also give nice statistics
