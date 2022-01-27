@@ -3,4 +3,5 @@ class Article < ApplicationRecord
   pg_search_scope :search,
                   against: %i[title description],
                   using: { tsearch: { dictionary: 'english' } }
+
 end

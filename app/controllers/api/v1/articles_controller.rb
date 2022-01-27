@@ -3,7 +3,6 @@ module Api
     class ArticlesController < Api::BaseController
       def index
         key_words = params[:query]&.gsub("-", " ")
-        # TODO some caching
         articles_found = Article.search(key_words)
         render json: { status: 200, message: "ok", articles: articles_found}
       end

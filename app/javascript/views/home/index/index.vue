@@ -58,23 +58,18 @@ export default {
     },
     saveSearch(){
       console.log("Sending data")
-      if (this.isBlank(this.searchSentence)){
-        console.log('Empty string')
-      } else {
+      if (!this.isBlank(this.searchSentence)){
         axios.post("/api/v1/search", {
           query: this.searchSentence,
           device: this.getUserDevice()
         }).then(() => {
-            console.log("sent data")
         }).catch((error) => {
-        console.log(error)})
+          console.log(error)})
       }
     },
     searchRequest(params){
-      // TODO remove hardcoded URL
       axios.get(`/api/v1/articles?query=${params}`)
           .then(response => {
-              // TODO change timeout depending of how many articles has the response
               this.articles = response.data?.articles ? response.data?.articles : []
             })
           .catch(error => { console.log(error) });

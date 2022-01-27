@@ -7,3 +7,8 @@ production:
   clients:
     default:
       uri: "mongodb+srv://user:user@cluster0.ngoey.mongodb.net/user_searches?retryWrites=true&w=majority"
+
+test:
+  clients:
+    default:
+      uri: "mongodb+srv://user:user@cluster0.ngoey.mongodb.net/test?retryWrites=true&w=majority"
