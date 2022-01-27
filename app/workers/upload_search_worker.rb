@@ -6,6 +6,7 @@ class UploadSearchWorker
     p "Uploading uuid: #{uuid}, query: #{query}, device: #{device}"
     Search.create(user_uuid: uuid, query: query, device: device)
 
+    query.gsub!("?", "")
     filter = Stopwords::Snowball::Filter.new "en"
     keywords = filter.filter "#{query}".split
     keywords.each { |word| Keyword.create(word: word) }

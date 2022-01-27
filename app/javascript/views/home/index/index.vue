@@ -49,7 +49,7 @@ export default {
   }),
   watch: {
     searchSentence(newValue) {
-      this.searchRequest(newValue.replace(' ','-'))
+      this.searchRequest(newValue.toLowerCase().replace(/\?/g, '').replace(' ','-'))
     }
   },
   methods: {
