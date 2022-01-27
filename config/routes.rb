@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post "/search", to: "search#create", as: :create_search
       get "/statistics", to: "statistics#index"
+      get "/all-searches", to: "statistics#get_all_searches"
       resources :statistics, only: :index
       resources :articles do
         collection do

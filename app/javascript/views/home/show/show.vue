@@ -21,6 +21,10 @@
             </v-list-item-group>
           </v-list>
         </v-col>
+        <v-col cols="12" sm="6" class="text-center mb-10 px-lg-16">
+          <h3 class="mt-10 mb-10 font-weight-thin text-lg-h4">Top devices</h3>
+          <div id="container-devices" style="height: 400px"></div>
+        </v-col>
       </v-row>
     </v-container>
   </section>
@@ -38,14 +42,17 @@ export default {
     .then(response => {
       this.keywords = response.data.keywords
       this.last_searches = response.data.last_searches
+      this.devices = response.data.devices
       this.setGraph(this.keywords)
+      this.setBarGraph(this.devices)
       console.log(response.data)
     })
     .catch((error) => console.log(error))
   },
   data: () => ({
     keywords: [],
-    last_searches: []
+    last_searches: [],
+    devices: [],
   }),
   methods: {
     setGraph(rawData){
@@ -55,6 +62,16 @@ export default {
       chart.data(data)
       chart.title("Top 5 most searched words");
       chart.container("container");
+      chart.draw();
+    },
+    setBarGraph(rawData){
+      console.log(rawData)
+      const chart = anychart.bar();
+      console.log(this.setData(rawData))
+      const data = this.setData(rawData)
+      chart.data(data)
+      chart.title("Most used devices");
+      chart.container("container-devices");
       chart.draw();
     },
     setData(rawData){

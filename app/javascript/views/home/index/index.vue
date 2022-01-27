@@ -46,11 +46,6 @@ export default {
     searchSentence: "",
     articles: [],
     selectedItem: 0,
-    items: [
-      { text: 'Real-Time', icon: 'mdi-book' },
-      { text: 'Audience', icon: 'mdi-account' },
-      { text: 'Conversions', icon: 'mdi-flag' },
-    ],
   }),
   watch: {
     searchSentence(newValue) {
@@ -67,22 +62,29 @@ export default {
         console.log('Empty string')
       } else {
         axios.post("/api/v1/search", {
-          query: this.searchSentence
-        })
-            .then(() => {
-              console.log("sent data")
-            }).catch((error) => {
-          console.log(error)})
+          query: this.searchSentence,
+          device: this.getUserDevice()
+        }).then(() => {
+            console.log("sent data")
+        }).catch((error) => {
+        console.log(error)})
       }
     },
     searchRequest(params){
       // TODO remove hardcoded URL
       axios.get(`/api/v1/articles?query=${params}`)
-            .then(response => {
+          .then(response => {
               // TODO change timeout depending of how many articles has the response
               this.articles = response.data?.articles ? response.data?.articles : []
             })
-            .catch(error => { console.log(error) });
+          .catch(error => { console.log(error) });
+    },
+    getUserDevice(){
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        return 'Mobile'
+      } else {
+        return 'Desktop'
+      }
     }
   }
 }
