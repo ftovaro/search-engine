@@ -81,6 +81,7 @@ export default {
           query: this.searchSentence,
           device: this.getUserDevice()
         }).then(() => {
+          console.log("sent data")
         }).catch((error) => {
           console.log(error)})
       }
