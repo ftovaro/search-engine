@@ -29,6 +29,24 @@
             </v-list-item-group>
           </v-list>
         </v-col>
+        <v-col cols="12" sm="12">
+          <p>Recommended searches:</p>
+          <ul>
+            <li>What is a good car?</li>
+            <li>These are the best cars right now</li>
+            <li>How to buy a good car?</li>
+            <li>Are you looking for something for dinner?</li>
+            <li>What animals are the best?</li>
+            <li>These are the best animals</li>
+            <li>Do you know best animal?</li>
+            <li>How is emil hajric doing?</li>
+          </ul>
+        </v-col>
+        <v-col cols="12" sm="12">
+          <v-btn rounded color="primary" dark href="/statistics">
+            Go to statistics
+          </v-btn>
+        </v-col>
       </v-row>
     </v-container>
   </section>
