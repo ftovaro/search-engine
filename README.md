@@ -4,6 +4,8 @@ This is a search engine basic implementation using `pg_search` gem. It
 connects also to a DB in mongo where it stores all the searches for 
 statistics.
 
+This page is [deployed on Heroku](https://search-engine-ftovaro.herokuapp.com/)
+
 The search a user makes is saved after 5 seconds of inactivity on the
 input field
 
