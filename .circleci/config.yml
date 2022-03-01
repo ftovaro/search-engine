@@ -19,9 +19,9 @@ jobs:
         version: 1.22.17
       - run: node --version
       - run: yarn
-      - node/install-packages:
-          pkg-manager: yarn
-          cache-key: "yarn.lock"
+      # - node/install-packages:
+      #     pkg-manager: yarn
+      #     cache-key: "yarn.lock"
   # test:
   #   parallelism: 3
   #   docker:
