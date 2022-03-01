@@ -10,11 +10,14 @@ jobs:
       - image: cimg/ruby:3.0.1
     steps:
       - checkout
-      - ruby/install-deps
+      # - ruby/install-deps
       # Store bundle cache
-      - node/install-packages:
-          pkg-manager: yarn
-          cache-key: "yarn.lock"
+      - node/install:
+        install-npm: false
+        node-version: 14.17.0
+      # - node/install-packages:
+      #     pkg-manager: yarn
+      #     cache-key: "yarn.lock"
       - node/install-yarn:
         version: 1.22.17
       - run: node --version
