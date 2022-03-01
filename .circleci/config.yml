@@ -12,6 +12,10 @@ jobs:
       - checkout
       - ruby/install-deps
       # Store bundle cache
+      - node/install-yarn:
+        version: 1.22.17
+      - run: node --version
+      - run: yarn
       - node/install-packages:
           pkg-manager: yarn
           cache-key: "yarn.lock"
