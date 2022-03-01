@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   ruby: circleci/ruby@1.1.0
-  node: circleci/node@2
+  node: circleci/node@5.0.0
 
 jobs:
   build:
@@ -10,6 +10,9 @@ jobs:
       - image: cimg/ruby:3.0.1
     steps:
       - checkout
+      - node/install:
+          install-yarn: true
+          node-version: '14.17.0'
       # - ruby/install-deps
       # Store bundle cache
       # - node/install-node:
@@ -18,10 +21,10 @@ jobs:
       # - node/install-packages:
       #     pkg-manager: yarn
       #     cache-key: "yarn.lock"
-      - node/install-yarn:
-        version: 1.22.17
+      # - node/install-yarn:
+      #   version: 1.22.17
       - run: node --version
-      - run: yarn
+      # - run: yarn
   # test:
   #   parallelism: 3
   #   docker:
