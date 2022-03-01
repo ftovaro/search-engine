@@ -12,6 +12,9 @@ jobs:
       - checkout
       - ruby/install-deps
       # Store bundle cache
+      - node/install:
+        install-npm: false
+        node-version: 14.17.0
       - node/install-yarn:
         version: 1.22.17
       - run: node --version
